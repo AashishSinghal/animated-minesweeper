@@ -114,8 +114,10 @@ export default function Board(props) {
       const FlagArray = getFlags(updatedData);
       win = JSON.stringify(mineArray) === JSON.stringify(FlagArray);
       if (win) {
-        revealBoard();
-        alert('You Win');
+        setTimeout(() => {
+          setShowModal(true);
+          setResult('You Won !');
+        }, 2000);
       }
     }
 
