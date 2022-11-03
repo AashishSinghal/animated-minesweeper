@@ -15,17 +15,6 @@ export default function Cell({ value, onClick, cMenu }) {
     }
     return value.neighbour;
   }
-  const coverAnimation = anime({
-    targets: '.cover',
-    scale: 1.5,
-    delay: function (el, i) {
-      return i * 100;
-    },
-    direction: 'alternate',
-    loop: true,
-    autoplay: false,
-    easing: 'easeInOutSine',
-  });
 
   let className =
     'cell' +
@@ -40,7 +29,6 @@ export default function Cell({ value, onClick, cMenu }) {
       className={className}
       onContextMenu={cMenu}
     >
-      <div className="cover"></div>
       {getValue()}
     </div>
   );

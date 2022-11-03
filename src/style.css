@@ -190,3 +190,18 @@ body {
 .is-mine {
   color: #fc543c;
 }
+
+.outer {
+  width: 100px;
+  height: 100px;
+  border: 1px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inner {
+  width: 60px;
+  height: 60px;
+  background-color: #349334;
+}

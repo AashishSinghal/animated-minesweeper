@@ -2,6 +2,7 @@ import React from 'react';
 import './style.css';
 import Board from './Board';
 import Theme from './Theme';
+import Test from './Test';
 import { BiLeftArrowAlt } from 'react-icons/bi';
 import MineSVG from './mine.svg';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
@@ -42,6 +43,7 @@ export default function App() {
             <Link to="/new-game">
               <button className="new-game">New Game</button>
             </Link>
+            <Test />
             <p>
               Inspired by the{' '}
               <a href="https://play.google.com/store/apps/details?id=ee.dustland.android.minesweeper">
