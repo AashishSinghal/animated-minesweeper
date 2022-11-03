@@ -116,7 +116,7 @@ export function initBoardData(height, width, mine) {
       };
     }
   }
-  data = plantMines(data, height, width, mine);
+  // data = plantMines(data, height, width, mine);
   data = getNeighbours(data, height, width);
   console.log(data);
   return data;
