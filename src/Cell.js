@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { anime } from 'animejs';
 
 export default function Cell({ value, onClick, cMenu }) {
@@ -15,6 +15,19 @@ export default function Cell({ value, onClick, cMenu }) {
     }
     return value.neighbour;
   }
+  useEffect(() => {
+    animationRef.current = anime({
+      targets: '.cell',
+      keyframes: [{ scale: 1.2 }, { scale: 0.0 }],
+      delay: function (el, i) {
+        return i * 100;
+      },
+      autoplay: value.isRevealed,
+      loop: false,
+      direction: 'forward',
+      easing: 'easeInOutSine',
+    });
+  }, [playAnimation]);
 
   let className =
     'cell' +
@@ -23,12 +36,8 @@ export default function Cell({ value, onClick, cMenu }) {
     (value.isFlagged ? ' is-flag' : '');
 
   return (
-    <div
-      // ref="cell"
-      onClick={onClick}
-      className={className}
-      onContextMenu={cMenu}
-    >
+    <div onClick={onClick} className={className} onContextMenu={cMenu}>
+      <div className="cell"></div>
       {getValue()}
     </div>
   );
