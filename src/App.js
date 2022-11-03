@@ -9,7 +9,7 @@ export default function App() {
       <h2>
         Inspired by the <a href="">Minesweeper</a> game on Playstore.
       </h2>
-      <Board height={9} width={9} mine={15} />
+      <Board height={15} width={10} mine={15} />
     </div>
   );
 }
