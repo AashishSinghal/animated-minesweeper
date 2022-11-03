@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --green1: #349334;
+  --green2: #59a457;
+  --balck1: #141414;
+  --gray1: #c8cec7;
+  --gray2: #646c6c;
+  --cell-w: 34px;
+}
+
+.App {
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  color: white;
+  background-color: black;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+.clear {
+  clear: both;
+  content: '';
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  width: 340px;
+  margin: 0 auto;
+}
+
+.game-info {
+  min-height: 50px;
+}
+
+.cell-container {
+  width: 340px;
+}
+
+.cell {
+  background: rgb(43, 43, 43);
+  border: 1px solid #414c69;
+  float: left;
+  line-height: 34px;
+  height: 34px;
+  text-align: center;
+  width: var(--cell-w);
+  color: white;
+  cursor: pointer;
+}
+
+.cell:focus {
+  outline: none;
+}
+
+.hidden {
+  background: #7e7b92;
+  border: none;
+}
+
+.is-flag,
+.is-mine {
+  color: #fc543c;
+}
