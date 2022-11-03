@@ -43,7 +43,7 @@ export default function App() {
             <Link to="/new-game">
               <button className="new-game">New Game</button>
             </Link>
-            <Test />
+            {/* <Test /> */}
             <p>
               Inspired by the{' '}
               <a href="https://play.google.com/store/apps/details?id=ee.dustland.android.minesweeper">

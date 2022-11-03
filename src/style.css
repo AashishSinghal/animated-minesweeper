@@ -138,6 +138,7 @@ body {
 }
 
 .game-over-modal {
+  z-index: 100;
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -166,6 +167,7 @@ body {
 }
 
 .cell {
+  position: relative;
   background: rgb(43, 43, 43);
   border: 1px solid #414c69;
   float: left;
@@ -175,6 +177,36 @@ body {
   width: var(--cell-w);
   color: white;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .value {
+  pos
+} */
+
+.cover {
+  position: absolute;
+  background-color: #349334;
+  border: none;
+  line-height: 34px;
+  height: 34px;
+  width: var(--cell-w);
+  pointer-events: none;
+  scale: 1;
+  transition: all 0.5s ease-out 200ms;
+}
+
+.shown {
+  background-color: #349334;
+  border: none;
+  line-height: 34px;
+  height: 34px;
+  width: var(--cell-w);
+  pointer-events: none;
+  scale: 0;
+  transition: all 0.5s ease-out 200ms;
 }
 
 .cell:focus {

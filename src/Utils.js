@@ -59,7 +59,6 @@ export function plantMines(data, height, width, mines) {
   while (minesPlanted < mines) {
     randomX = getRandomNumber(height);
     randomY = getRandomNumber(width);
-    console.log(randomX, randomY);
     if (!data[randomX][randomY].isMine) {
       data[randomX][randomY].isMine = true;
       minesPlanted++;
@@ -118,7 +117,6 @@ export function initBoardData(height, width, mine) {
   }
   data = plantMines(data, height, width, mine);
   data = getNeighbours(data, height, width);
-  console.log(data);
   return data;
 }
 

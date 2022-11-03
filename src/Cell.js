@@ -1,14 +1,15 @@
-import React, { useEffect } from 'react';
-import { anime } from 'animejs';
+import React, { useEffect, useState } from "react";
+import anime from "animejs";
 
 export default function Cell({ value, onClick, cMenu }) {
+  const [playAnimation, setPlayAnimation] = useState(false);
+  const animationRef = React.useRef(null);
   function getValue() {
-    console.log(value);
     if (!value.isRevealed) {
-      return value.isFlagged ? '🚩' : null;
+      return value.isFlagged ? "🚩" : null;
     }
     if (value.isMine) {
-      return '💣';
+      return "💣";
     }
     if (value.neighbour === 0) {
       return null;
@@ -17,28 +18,47 @@ export default function Cell({ value, onClick, cMenu }) {
   }
   useEffect(() => {
     animationRef.current = anime({
-      targets: '.cell',
+      targets: `.cover${value.x}${value.y}`,
       keyframes: [{ scale: 1.2 }, { scale: 0.0 }],
       delay: function (el, i) {
         return i * 100;
       },
-      autoplay: value.isRevealed,
+      autoplay: playAnimation,
       loop: false,
-      direction: 'forward',
-      easing: 'easeInOutSine',
+      direction: "forward",
+      easing: "easeInOutSine",
     });
-  }, [playAnimation]);
+  }, []);
+
+  const handleOnClick = () => {
+    setPlayAnimation(true);
+    onClick();
+  };
 
   let className =
-    'cell' +
-    (value.isRevealed ? '' : ' hidden') +
-    (value.isMine ? ' is-mine' : '') +
-    (value.isFlagged ? ' is-flag' : '');
+    "cell" +
+    (value.isRevealed ? "" : " hidden") +
+    (value.isMine ? " is-mine" : "") +
+    (value.isFlagged ? " is-flag" : "");
 
   return (
-    <div onClick={onClick} className={className} onContextMenu={cMenu}>
-      <div className="cell"></div>
+    <div onClick={handleOnClick} className={className} onContextMenu={cMenu}>
+      {/* <div className="value"></div> */}
       {getValue()}
+      <div
+        className={`${value.isRevealed ? "shown" : "cover"}`}
+        style={{
+          position: "absolute",
+          backgroundColor: "#349334",
+          border: "none",
+          lineHeight: "34px",
+          height: "34px",
+          width: "34px",
+          pointerEvents: "none",
+        }}
+      >
+        {value.isFlagged && "🚩"}
+      </div>
     </div>
   );
 }

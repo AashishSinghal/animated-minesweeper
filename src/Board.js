@@ -128,7 +128,6 @@ export default function Board(props) {
   }
 
   function renderBoard(data) {
-    console.log(data);
     return data.map((datarow) => {
       return datarow.map((dataitem) => {
         return (
