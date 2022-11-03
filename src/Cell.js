@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
 export default function Cell({ value, onClick, cMenu }) {
   function getValue() {
@@ -28,12 +27,6 @@ export default function Cell({ value, onClick, cMenu }) {
       className={className}
       onContextMenu={cMenu}
     >
-      <motion.div
-        className={`${value.isRevealed ? '' : 'hidden'}`}
-        initial={{ scale: 1 }}
-        animate={{ scale: [1.2, 1, 0.7, 0.5, 0] }}
-        transition={{ duration: 0.5 }}
-      ></motion.div>
       {getValue()}
     </div>
   );
