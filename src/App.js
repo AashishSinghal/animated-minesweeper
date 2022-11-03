@@ -12,7 +12,9 @@ export default function App() {
       <Switch>
         <Route exact path="/">
           <div className="App">
-            <Theme />
+            <div className="theme-nav">
+              <Theme />
+            </div>
             <h1>Minesweeper 💣</h1>
             <svg
               id="Layer_1"
@@ -41,7 +43,11 @@ export default function App() {
               <button className="new-game">New Game</button>
             </Link>
             <p>
-              Inspired by the <a href="">Minesweeper</a> game on Playstore.
+              Inspired by the{' '}
+              <a href="https://play.google.com/store/apps/details?id=ee.dustland.android.minesweeper">
+                Minesweeper
+              </a>{' '}
+              game on Playstore.
             </p>
           </div>
         </Route>

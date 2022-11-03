@@ -104,6 +104,10 @@ body {
   margin-top: auto;
 }
 
+.App p a {
+  text-decoration: underline;
+}
+
 .nav-panel {
   display: flex;
   width: 100%;
